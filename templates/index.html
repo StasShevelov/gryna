@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>GrynaSearch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+			background-color: #000;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #fff;
+        }
+        
+        .search-form {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .search-input {
+            padding: 10px;
+            width: 70%;
+            font-size: 16px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .search-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        
+        .search-results {
+            margin-top: 30px;
+        }
+        .header-links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header-link {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+        }
+        
+        .header-link:hover {
+            text-decoration: underline;
+        }
+        
+        .result-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #222;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+        
+        .result-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .result-url {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-links">
+        <a class="header-link" href="/removebg">remove background</a>
+        <a class="header-link" href="/chat">chat</a>
+        
+    </div>
+    <div class="container">
+        <h1>Поисковая система</h1>
+        <form class="search-form" action="/google" method="get">
+            <input class="search-input" type="text" name="search" placeholder="Введите запрос" required>
+            <button class="search-button" type="submit">Поиск</button>
+        </form><br>
+          {{ answer }}
+        <div class="search-results">
+            {{results|safe}}
+        </div>
+    </div>
+</body>

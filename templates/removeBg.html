@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Импорт изображения и удаление фона</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .file-input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .file-input-container:hover {
+      border-color: #aaa;
+    }
+
+    .file-input-container .file-input-text {
+      font-size: 16px;
+      color: #999;
+      margin-top: 10px;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    img#image-preview {
+      display: block;
+      max-width: 500px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  </style>
+  
+<body>
+  <h1>Импорт изображения и удаление фона</h1>
+
+  <form id="image-form" action="/removebgres" enctype="multipart/form-data" method="post">
+    <label for="image-input" class="file-input-container">
+      <input type="file" name="file"id="image-input" accept="image/*">
+      <span class="file-input-text">Перетащите сюда изображение или кликните для выбора файла</span>
+    </label>
+    <button type="submit" id="remove-background-button">Удалить фон</button>
+    <p align="center"><img src="{{ url_for('static', filename='img/output.png') }}" alt=""></p>
+
+  </form>
+
+  <div id="result"></div>
+
+  
+
+
+
