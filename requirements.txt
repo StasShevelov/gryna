@@ -5,3 +5,5 @@ tls-client
 Flask
 requests
 beautifulsoup4
+rembg
+Pillow
