@@ -3,3 +3,4 @@ langdetect
 fake-useragent
 tls-client
 Flask
+requests
