@@ -2,3 +2,4 @@ gpytranslate
 langdetect
 fake-useragent
 tls-client
+Flask
