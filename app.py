@@ -31,55 +31,53 @@ def think(m):
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
-    
-    
-    
-    return render_template('index.html')
-
-@app.route('/google', methods=['GET'])
-def google():
-    
-        
     search = request.args.get('search')  # запрос к данным формы
     res = parser1.search(search)
     
     if res == "":
         return render_template('index.html')
     else:
-
         return render_template('index.html', answer= think(search), results = res)
     
+    
+   
 
-
-@app.route('/chat')
-def chat():
-      
-    return render_template("chat.html")
-
+    
 
 
 ans = []
-@app.route('/answer', methods=['POST'])
-def answer():
+
+@app.route('/chat', methods=['GET'])
+def chat():
+    m = request.args.get('message')
+    if m == None:
+        return render_template('chat.html')
+    answ = think(m)
     
-    m = request.form['message']
+        
     ans.append(f"""<div class="message user-message">
-      <div class="avatar"></div>
-      <div class="content">
-        {m}
-        <div class="timestamp">12:05 PM</div>
-      </div>
+    <div class="avatar"></div>
+    <div class="content">
+    {m}
+    <div class="timestamp">12:05 PM</div>
+    </div>
     </div>
     <div class="message bot-message">
-      <div class="content">
-        {think(m)}
+    <div class="content">
+        {answ}
         <div class="timestamp">12:10 PM</div>
-      </div>
+    </div>
     </div>""")
-    print(ans)
+    
+        
     return render_template('chat.html', otvet = "".join(ans) )
+    
+
+
+
+
 
 
 
