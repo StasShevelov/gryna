@@ -14,12 +14,13 @@ def search(m):
 
     results = []
     for a in soup.select("a:has(h3)"):
-        print(a["href"])
+        href_link = a["href"] 
+        print(href_link)
         if "search?q=" in a["href"]:
             print("no")
         else:
-            results.append(f"""<div class="result-item"><h2 class='result-title' >{parser2.link_name(a["href"])}</h2>
-                            <a href= '{a["href"]}' class="result-url" style="color: white">{a["href"]}</a>
+            results.append(f"""<div class="result-item"><h2 class='result-title' >{parser2.link_name(href_link)}</h2>
+                            <a href= '{href_link}' class="result-url" style="color: white">{href_link}</a>
                             </div>""")
     
         
