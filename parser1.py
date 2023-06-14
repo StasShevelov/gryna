@@ -15,6 +15,7 @@ def search(m):
     results = []
     for a in soup.select("a:has(h3)"):
         print(a)
+        print(type(a))
         if "search?q=" in a["href"]:
             print("no")
         else:
