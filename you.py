@@ -91,8 +91,12 @@ class Completion:
             'sec-fetch-mode': 'cors',
             'sec-fetch-site': 'same-origin',
             'cookie': f'safesearch_guest=Moderate; uuid_guest={str(uuid4())}',
-            'user-agent': UserAgent().random,
+            'user-agent': "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0",
         }
+
+    @classmethod
+    def __get_failure_response(cls) -> dict:
+        return dict(response='Unable to fetch the response, Please try again.', links=[], extra={})
 
     @classmethod
     def __get_failure_response(cls) -> dict:
